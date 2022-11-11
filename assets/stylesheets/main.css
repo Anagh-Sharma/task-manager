@@ -1,0 +1,234 @@
+/* Global Settings */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(243,242,239);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Helper Classes */
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.clear::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.row {
+    display: flex;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+.justify-space-around {
+    justify-content: space-around;
+}
+.justify-space-evenly {
+    justify-content: space-evenly;
+}
+.justify-space-center {
+    justify-content: center;
+}
+.justify-space-left {
+    justify-content: left;
+}
+.justify-space-right {
+    justify-content: right;
+}
+
+.align-items-center {
+    align-items: center;
+}
+.align-items-start {
+    align-items: flex-start;
+}
+.align-items-end {
+    align-items: flex-end;
+}
+.align-items-stretch {
+    align-items: stretch;
+}
+
+.grid {
+    display: grid;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.padding-8-4 {
+    padding: 8px 4px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.underline{
+    text-decoration: underline;
+}
+.text-center {
+    text-align: center;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+@media (max-width:1200px) {
+    .container {
+        max-width: 960px;
+    }   
+}
+
+@media (max-width:992px) {
+    .container {
+        max-width: 740px;
+    }   
+}
+
+@media (max-width:768px) {
+    .container {
+        max-width: 100%;
+        width: 100%;
+    }   
+}
+
+/* Header */
+#header{
+    background-color: #fff;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+#header .header-title{
+    font-family: 'Playfair Display SC', serif;
+    font-size: 44px;
+    padding: 4px 4px;
+}
+
+@media(max-width:584px){
+    #header .container>div{
+        flex-wrap: nowrap;
+        /* overflow-x: auto; */
+        scroll-snap-type: x mandatory;
+    }
+}
+#header .container{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Content */
+
+
+/* Content : Tasks Input */
+
+.input-form {
+    background-color: #fff;
+    padding: 8px 8px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 2px rgba(128, 128, 128, 0.221);
+    margin-bottom: 24px;
+    /* border: 2px solid black; */
+}
+
+.input-form .from-label {
+    display: block;
+    padding: 5px 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.input-form .from-input {
+    display: block;
+    padding: 5px 4px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    border: 2px solid rgb(118, 118, 118);
+}
+.input-form .from-input:hover {
+    border: 2px solid black;
+}
+
+.input-form .input-form-btns{
+    padding: 5px 4px;
+}
+
+.input-form .input-form-btn{
+    width: 13%;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    border: 2px solid rgb(118, 118, 118);
+    border-radius: 8px;
+    cursor: pointer;
+}
+.input-form .input-form-btn:hover{
+    background-color: rgba(128, 128, 128, 0.03);
+    border: 2px solid black;
+}
+
+.input-form #update-save{
+    display: none;
+}
+/* To .disable buttons who's functions are under development */
+.input-form .disable{
+    cursor: not-allowed;
+    pointer-events: none;
+ }
+
+/* Content : Tasks Input */
+
+.tasks-disp-table {
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 2px rgba(128, 128, 128, 0.221);
+    width: 100%;
+    /* border-collapse: collapse; */
+}
+
+.tasks-disp-table th, td {
+    font-family: 'Roboto', sans-serif;
+    padding: 8px;
+    text-align: left;
+}
+
+/* .tasks-disp-table tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.452);
+} */
+
+.tasks-disp-table tbody tr:nth-child(2n)
+{
+    background-color: rgba(128, 128, 128, 0.096);
+}
+
+/* Checkbox */
+/* .tasks-disp-table .task-checkbox {
+    text-align: center;
+} */
+.tasks-disp-table .task-checkbox-input {
+    height: 25px;
+    width: 25px;
+    /* background-color: #eee; */
+}
