@@ -13,6 +13,8 @@ function initEvents() {
     document.querySelector("#deleteTask").addEventListener("click", deleteTask);
     // Update task
     document.querySelector("#updateTask").addEventListener("click", updateTask);
+    // Search task
+    document.querySelector("#searchTask").addEventListener("click", searchTask);
 }
 
 function generateTableHeaderAndBody() {
@@ -42,21 +44,21 @@ function addTask() {
     obj.insertTask(taskTitle.value, taskDesc.value);
 
     // Show the updated array of tasks
-    showTask();
+    showTasks(obj.taskList);
 
     // Clearing the inserted task from the input boxes
     taskTitle.value = "";
     taskDesc.value = "";
 }
 
-function showTask() {
+function showTasks(tasks) {
     // All tasks present in the taskList are to be desplayed again. 
 
     // Removing all the rows present in the table body
     table.tBodies[0].innerHTML = "";
 
     // All tasks present in the taskList of obj are printed.
-    obj.taskList.forEach(function(task) {
+    tasks.forEach(function(task) {
         // Creating a new row in tBody
         let row = table.tBodies[0].insertRow();
                     
@@ -101,10 +103,13 @@ function selectTask() {
 
 function deleteTask() {
     obj.deleteTask();
-    showTask();
+    showTasks(obj.taskList);
 }
 
 function updateTask() {
     obj.updateTask();
-    showTask();
+}
+
+function searchTask() {
+    obj.searchTask();
 }
