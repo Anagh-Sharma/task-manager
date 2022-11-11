@@ -46,17 +46,21 @@
 
                     <!-- Task Input -->
                     <section class="input-form-input">
-                        <div class="title padding-8-4 font-16">
+                        <div id="input-title" class="padding-8-4 font-16">
                             <label for="title" class="w-100 from-label">Title</label>
                             <input id="title" class="w-100 font-16 from-input" type="text" placeholder="Enter the title of a task.">
                         </div>
-                        <div class="title padding-8-4 font-16">
+                        <div id="input-desc" class="padding-8-4 font-16">
                             <label for="desc" class="w-100 from-label">Description</label>
                             <textarea name="description" id="desc" class="w-100 font-16 from-input" rows="1" placeholder="Enter the description of a task."></textarea>
                         </div>
+                        <div id="search-task-input" class="padding-8-4 font-16">
+                            <label for="search-task-query" class="w-100 from-label">Query</label>
+                            <textarea name="description" id="search-task-query" class="w-100 font-16 from-input" rows="1" placeholder="Entered value is searched in the titles and descriptions."></textarea>
+                        </div>
                     </section>
 
-                    <!-- Update save section -->
+                    <!-- Update save -->
                     <section id="update-save" class="input-form-btns row justify-space-between">
                         <button id="updateSaveTask" class="input-form-btn padding-8-4">
                             <i class="fa-solid fa-check"></i>
@@ -64,8 +68,20 @@
                         </button>
                     </section>
 
+                    <!-- Search -->
+                    <section id="search-task" class="input-form-btns row justify-space-evenly">
+                        <button id="findTask" class="input-form-btn padding-8-4">
+                            <i class="fa-solid fa-check"></i>
+                            <span class="btn-label">Find</span>
+                        </button>
+                        <button id="closeSearch" class="input-form-btn padding-8-4">
+                            <i class="fa-solid fa-check"></i>
+                            <span class="btn-label">Close Search</span>
+                        </button>
+                    </section>
+
                     <!-- Task Input Action -->
-                    <section class="input-form-btns row justify-space-between">
+                    <section id="task-input-actions" class="input-form-btns row justify-space-between">
                         <button id="addTask" class="input-form-btn padding-8-4">
                             <i class="fa-solid fa-plus btn-icon"></i>
                             <span class="btn-label">Add</span>
@@ -82,7 +98,7 @@
                             <i class="fa-solid fa-arrow-up-a-z"></i>
                             <span class="btn-label">Sort</span>
                         </button>
-                        <button id="searchTask" class="input-form-btn padding-8-4 disable">
+                        <button id="searchTask" class="input-form-btn padding-8-4">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <span class="btn-label">Search</span>
                         </button>
