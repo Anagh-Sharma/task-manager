@@ -191,7 +191,14 @@ ul {
 .input-form #update-save{
     display: none;
 }
-/* To .disable buttons who's functions are under development */
+.input-form #search-task{
+    display: none;
+}
+.input-form #search-task-input{
+    display: none;
+}
+
+/* To disable buttons who's functions are under development */
 .input-form .disable{
     cursor: not-allowed;
     pointer-events: none;
