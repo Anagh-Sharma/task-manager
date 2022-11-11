@@ -1,2 +1,2 @@
 # task-manager
-An ongoing project tp build a Task Manager/Bug-Tracker website.
+An ongoing project to build a Task Manager/Bug-Tracker website.
