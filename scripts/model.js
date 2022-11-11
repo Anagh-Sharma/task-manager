@@ -63,7 +63,10 @@ var obj = {
             document.querySelector("#desc").value = toUpdate[0].desc;
 
             // Display the Save button
-            document.querySelector("#update-save").style.display = "block";
+            document.querySelector("#update-save").style.display = "flex";
+
+            // Hide the input buttons
+            document.querySelector("#task-input-actions").style.display = "none";
 
             // Update input box placeholder text
             document.querySelector("#title").placeholder = "Enter the updated title of the task.";
@@ -79,7 +82,7 @@ var obj = {
                 toUpdate[0].updateDate = new Date().toLocaleString('en-GB');
 
                 // Display the task list again
-                showTask();
+                showTasks(obj.taskList);
 
                 // Erase the input boxes
                 document.querySelector("#title").value = "";
@@ -88,10 +91,77 @@ var obj = {
                 // Remove the Save button
                 document.querySelector("#update-save").style.display = "none";
 
+                // Unhide the input buttons
+                document.querySelector("#task-input-actions").style.display = "flex";
+
                 // Update input box placeholder text
                 document.querySelector("#title").placeholder = "Enter the title of a task.";
                 document.querySelector("#desc").placeholder = "Enter the description of a task.";
             })
         }
+    },
+
+    searchTask : function() {
+        // Hide the task-input-actions buttons
+        document.querySelector("#task-input-actions").style.display = "none";
+
+        // Display the search-task buttons
+        document.querySelector("#search-task").style.display = "flex";
+
+        // Hide the input-title and input-desc input boxes
+        document.querySelector("#input-title").style.display = "none";
+        document.querySelector("#input-desc").style.display = "none";
+
+        // Display the search-task-input input box
+        document.querySelector("#search-task-input").style.display = "block";
+
+        // On click of find -> read the value in the title input box 
+        // find the task objects with titles equal to the entered (non case sensitive)
+        // and store the returned tasks in an array
+        // If the returned array has any tasks, then:
+        // remove all the rows of the table
+        // display the tasks of the array
+        document.querySelector("#findTask").addEventListener("click", function(){
+            var query = document.querySelector("#search-task-query").value;
+            var searchedTasks = obj.taskList.filter(function(taskObj) {
+                var taskTitle = taskObj.title;
+                var taskDesc = taskObj.desc;
+                return (taskTitle.localeCompare(query, 'en-GB', { sensitivity: 'base' }) === 0) || 
+                (taskDesc.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+            });
+
+            console.log(obj.taskList);
+            console.log(searchedTasks);
+
+            if(searchedTasks.length === 0) {
+                alert("No match found!");
+            }
+            else {
+                showTasks(searchedTasks);
+            }
+        })
+
+
+        // On click of close_search -> show all the tasks in the task list
+        document.querySelector("#closeSearch").addEventListener("click", function(){
+            // Display the task-input-actions buttons
+            document.querySelector("#task-input-actions").style.display = "flex";
+
+            // Hide the search-task buttons
+            document.querySelector("#search-task").style.display = "none";
+
+            // Display the input-title and input-desc input boxes
+            document.querySelector("#input-desc").style.display = "block";
+            document.querySelector("#input-title").style.display = "block";
+
+            // Erase the search-task-query input box
+            document.querySelector("#search-task-query").value = "";
+
+            // Hide the search-task-input input box section
+            document.querySelector("#search-task-input").style.display = "none";
+
+            // Display the task list again
+            showTasks(obj.taskList);
+        })
     }
 }
