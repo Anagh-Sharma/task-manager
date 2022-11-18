@@ -175,7 +175,7 @@ ul {
 }
 
 .input-form .input-form-btn{
-    width: 13%;
+    width: 11%;
     font-size: 17px;
     font-family: 'Roboto', sans-serif;
     background-color: #fff;
@@ -204,7 +204,7 @@ ul {
     pointer-events: none;
  }
 
-/* Content : Tasks Input */
+/* Content : Tasks Display Table */
 
 .tasks-disp-table {
     background-color: #fff;
@@ -215,7 +215,18 @@ ul {
     /* border-collapse: collapse; */
 }
 
-.tasks-disp-table th, td {
+.tasks-disp-table .table-sort-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.tasks-disp-table .table-sort-icon {
+    padding: 8px;
+    /* text-align: left; */
+}
+
+.tasks-disp-table th, td{
     font-family: 'Roboto', sans-serif;
     padding: 8px;
     text-align: left;

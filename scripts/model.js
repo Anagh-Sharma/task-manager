@@ -33,8 +33,8 @@ var obj = {
         var toggledTask = this.taskList.filter(function(taskObj) {
             return taskObj.id == id;
         });
-        // If the value was to true it will become false and vice-versa
-        toggledTask[0].selected = !toggledTask[0].selected; // filter returns an array
+        // If the value was true it will become false and vice-versa
+        toggledTask[0].selected = !toggledTask[0].selected; // As filter function returns an array
         console.log(toggledTask);
     },
 
@@ -52,12 +52,15 @@ var obj = {
         
         if(toUpdate.length>1) {
             alert("Select only one task to update!");
-            toUpdate.forEach(task => {
+            obj.taskList.forEach(function(task){
                 task.selected = false;
             });
+            showTasks(obj.taskList);
         }
         
         else if(toUpdate.length === 1) {
+            alert(toUpdate[0].id+toUpdate[0].title);
+
             // Display the task's title and description in the input boxes
             document.querySelector("#title").value = toUpdate[0].title;
             document.querySelector("#desc").value = toUpdate[0].desc;
@@ -97,7 +100,10 @@ var obj = {
                 // Update input box placeholder text
                 document.querySelector("#title").placeholder = "Enter the title of a task.";
                 document.querySelector("#desc").placeholder = "Enter the description of a task.";
-            })
+
+                // Unselect task
+                toUpdate[0].selected = false;
+            }, { once: true })
         }
     },
 
@@ -128,7 +134,7 @@ var obj = {
                 var taskDesc = taskObj.desc;
                 return (taskTitle.localeCompare(query, 'en-GB', { sensitivity: 'base' }) === 0) || 
                 (taskDesc.toLowerCase().indexOf(query.toLowerCase()) !== -1);
-            });
+            }, { once: true });
 
             console.log(obj.taskList);
             console.log(searchedTasks);
@@ -139,7 +145,7 @@ var obj = {
             else {
                 showTasks(searchedTasks);
             }
-        })
+        }, { once: true })
 
 
         // On click of close_search -> show all the tasks in the task list
@@ -162,6 +168,6 @@ var obj = {
 
             // Display the task list again
             showTasks(obj.taskList);
-        })
+        }, { once: true })
     }
 }
