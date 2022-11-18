@@ -3,6 +3,7 @@ An ongoing project to build a Task Manager/Bug-Tracker website.
 - Completed:
   - CRUD operations
   - Search operation
+  - Sort operation
 - Future updates:
-  - Sort, Download, and Upload functions
+  - Download, and Upload functions
   - Session Management and User Authentication
