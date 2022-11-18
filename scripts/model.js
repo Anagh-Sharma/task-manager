@@ -59,7 +59,6 @@ var obj = {
         }
         
         else if(toUpdate.length === 1) {
-            alert(toUpdate[0].id+toUpdate[0].title);
 
             // Display the task's title and description in the input boxes
             document.querySelector("#title").value = toUpdate[0].title;
